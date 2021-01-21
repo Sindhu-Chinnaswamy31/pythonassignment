@@ -6,7 +6,7 @@ def parse(AirportCode,AirportName,TimeYear):
 		try:
 			response = requests.get(url, headers=headers, verify=False)
 			parser = html.fromstring(response.text)
-			json_data_xpath = parser.xpath("//script[@id='cachedResultsJson']//text()")
+			json_data_xpath = parser.xpath("airlines.csv")
 			raw_json =json.loads(json_data_xpath[0] if json_data_xpath else '')
 			flight_data = json.loads(raw_json["content"])
 
